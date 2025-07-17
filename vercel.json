@@ -1,21 +1,34 @@
 {
   "version": 2,
-  "framework": null,
   "functions": {
-    "api/index.php": { "runtime": "vercel-php@0.7.3" }
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
   },
   "routes": [
-    { "src": "/css/(.*)", "dest": "/public/css/$1" },
-    { "src": "/js/(.*)", "dest": "/public/js/$1" },
-    { "src": "/build/(.*)", "dest": "/public/build/$1" },
-    { "src": "/(.*)", "dest": "/api/index.php" }
+    {
+      "src": "^/css/(.*)",
+      "dest": "/css/$1"
+    },
+    {
+      "src": "^/js/(.*)",
+      "dest": "/js/$1"
+    },
+    {
+      "src": "^/build/(.*)",
+      "dest": "/build/$1"
+    },
+    {
+      "src": "^(?!/(css|js|images|build|favicon.ico)).*$",
+      "dest": "/api/index.php"
+    }
   ],
-  "buildCommand": "npm run prod",
   "outputDirectory": "public",
+  "buildCommand": "npm run prod",
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-    "APP_URL": "https://yourproductionurl.com",
+    "APP_URL": "https://uas-genap-2025-2314370265.vercel.app",
     "APP_KEY": "base64:TGaVaXwhWgjn9akhE4SCSIjGG/cQqvICUQ+PgLA3Bs0=",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
